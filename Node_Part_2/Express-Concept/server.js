@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const {configureCors} = require('./config/cors.config')
 const { requestLogger, addTimeStamp } = require('./middlewares/customMiddleware')
+const {globalErrorhandler} = require('./middlewares/errorHandler')
 const cors = require('cors');
 
 const app = express();
@@ -14,6 +15,8 @@ app.use(addTimeStamp)
 // Middleware
 app.use(configureCors());         
 app.use(express.json()); 
+
+app.use(globalErrorhandler)
 
 // Start server
 app.listen(PORT, () => {
