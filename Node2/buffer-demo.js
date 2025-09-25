@@ -24,3 +24,5 @@ console.log(bufferString.slice(0, 3))
 
 const cancatBuffs = Buffer.concat([buffOne, bufferString])
 console.log(cancatBuffs)
+
+console.log(cancatBuffs.toJSON())
